@@ -7,6 +7,8 @@ const categorydataAddedtoDBRouteer = require("./routes/categoryimport.router")
 
 const hotelRouter = require("./routes/hotelrouter")
 const categoryRouter = require("./routes/category.router")
+const singlehotelrouterbyID = require('./routes/singlehotel.router')
+const authrouter = require("./routes/auth.router")
 const connectDB = require('./config/dbconfig')
 
 
@@ -25,6 +27,10 @@ app.use("/api/hotels", hotelRouter)
 app.use("/api/categories",categoryRouter)
 app.use("/api/categorydata",categorydataAddedtoDBRouteer)
 app.use('/api/hoteldata',hoteldataAddedtoDBRouteer)
+app.use('/api/hotel',singlehotelrouterbyID)
+app.use('/api/auth',authrouter)
+
+
 
 mongoose.connection.once('open', () => {
     console.log('Connected to DB')
