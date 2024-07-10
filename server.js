@@ -1,6 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const cors = require('cors');
 
+dotenv.config();
 
 const hoteldataAddedtoDBRouteer = require("./routes/dataimport.router")
 const categorydataAddedtoDBRouteer = require("./routes/categoryimport.router")
@@ -15,7 +18,7 @@ const connectDB = require('./config/dbconfig')
 
 const app = express();
 
-
+app.use(cors());
  app.use(express.json())
  connectDB();
  const PORT = 3500;
