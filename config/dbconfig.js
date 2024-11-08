@@ -1,10 +1,8 @@
 const mongoose = require('mongoose') ;
-const dotenv = require('dotenv');
-dotenv.config();
 
 const connectDB = async () => {
     try{
-        await mongoose.connect(process.env.DATABASE_URI, {
+        await mongoose.connect(`mongodb+srv://bhalakunal1210:Kunal123@traveldbcluster.dw9bckc.mongodb.net/TravelApp?retryWrites=true&w=majority`, {
             useNewUrlParser:true
         })
     }catch(err){
